@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="250.0" prefWidth="350.0" spacing="4" style="-fx-background-color: #ffc2c2; -fx-border-color: #ffc2c2; -fx-padding: 15px;" xmlns="http://javafx.com/javafx/8.0.291" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AuthController">
+    <Label text="Login">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>
+    <TextField fx:id="loginTF" promptText="Login" style="-fx-background-color: #ffdcdc;" />
+    <Label text="Password">
+      <font>
+         <Font name="System Bold" size="12.0" />
+      </font></Label>
+    <PasswordField fx:id="passwordTF" promptText="Password" style="-fx-background-color: #ffdcdc;" />
+    <Button cache="true" cancelButton="true" onAction="#auth" style="-fx-background-color: #ff5e5e; -fx-border-color: #ff0000; -fx-margin-top: 15px;" text="Let's chating!">
+      <effect>
+         <Lighting>
+            <bumpInput>
+               <Shadow />
+            </bumpInput>
+            <light>
+               <Light.Distant>
+                  <color>
+                     <Color red="1.0" opacity="0.800000011920929" />
+                  </color>
+               </Light.Distant>
+            </light>
+         </Lighting>
+      </effect>
+      <cursor>
+         <Cursor fx:constant="HAND" />
+      </cursor></Button>
+</VBox>

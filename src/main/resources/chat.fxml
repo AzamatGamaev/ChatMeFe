@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="365.0" prefWidth="450.0" spacing="4" style="-fx-background-color: #ffc2c2; -fx-border-color: #ffc2c2;" xmlns="http://javafx.com/javafx/8.0.291" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ChatController">
+    <TextArea fx:id="chatArea" editable="false" focusTraversable="false" style="-fx-background-color: #ffdede;" wrapText="true" VBox.vgrow="ALWAYS" />
+    <HBox spacing="4">
+        <TextField fx:id="inputField" onAction="#sendMsg" promptText="Напиши сообщение здесь..." style="-fx-background-color: #ffdcdc;" HBox.hgrow="ALWAYS">
+         <font>
+            <Font name="System Italic" size="12.0" />
+         </font></TextField>
+        <Button onAction="#sendMsg" text="Send  message">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="1.0" opacity="0.7956521511077881" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect></Button>
+    </HBox>
+
+    <padding>
+        <Insets bottom="8" left="12" right="12" top="8" />
+    </padding>
+</VBox>
