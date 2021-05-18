@@ -59,6 +59,7 @@ public class ChatController {
                 while (socket.isConnected()) {
                     System.out.println("Готовы считывать...");
                     String strFromServer = in.readUTF();
+                    //lesson 3 - вывод истории в окно чата
                     File file = new File(Config.nick + ".txt");
                     if (file.exists()) {
                         try {
@@ -66,11 +67,13 @@ public class ChatController {
                             BufferedReader reader = new BufferedReader(fr);
                             String line = reader.readLine();
                             while (line != null) {
-                                chatArea.appendText(line+"\n");
+                                chatArea.appendText(line + "\n");
                                 line = reader.readLine();
                             }
                         } catch (FileNotFoundException e) {
                             e.printStackTrace();
+
+
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
@@ -97,16 +100,18 @@ public class ChatController {
     }
 
     private void addCloseListener() {
+        //lesson 3 - запись истории чата в файл
         EventHandler<WindowEvent> onCloseRequest = Main.mainStage.getOnCloseRequest();
         Main.mainStage.setOnCloseRequest(event -> {
             closeConnection();
             String[] arrForTxtFile = chatArea.getText().split("\n");
-            try (FileWriter fileWriter = new FileWriter(Config.nick + ".txt", true)) {
+            try (FileWriter fileWriter = new FileWriter("history_" + Config.nick + ".txt", true)) {
                 if (arrForTxtFile.length > 100) {
-                    for (int i = arrForTxtFile.length-100; i < arrForTxtFile.length; i++) {
+                    for (int i = arrForTxtFile.length - 100; i < arrForTxtFile.length; i++) {
                         fileWriter.write(arrForTxtFile[i]);
                     }
                 } else fileWriter.write(chatArea.getText());
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
